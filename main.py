@@ -9,17 +9,20 @@ from specific import run_cpp, plot_graph, handle_submit, create_gui
 
 
 def show_graph():
-    image_path = ''
-    img = Image.open()
-    img = img.resize((100, 100))  # Adjust the size as needed
+    # Load your image (replace 'karachi-map.png' with the actual path)
+    image_path = 'karachi-map.png'
+    img = Image.open(image_path)
+    img = img.resize((900, 600), Image.ADAPTIVE)  # Adjust the size as needed
     img = ImageTk.PhotoImage(img)
-
+    
     # Create a top-level window to display the image
     image_window = tk.Toplevel()
     image_label = tk.Label(image_window, image=img)
     image_label.pack()
 
-    messagebox.showinfo("Show Graph", "Graph will be displayed here.")
+    # Keep a reference to the image to prevent it from being garbage-collected
+    image_label.image = img
+
 
 def open_algorithm_window():
     algorithm_window = tk.Toplevel(root)
