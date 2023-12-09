@@ -2,6 +2,7 @@
 #include <climits>
 #include <vector>
 #include <fstream>
+using namespace std;
 
 
 #define V 39
@@ -19,40 +20,47 @@ int minDistance(int dist[], bool sptSet[]) {
     return min_index;
 }
 
-void saveRouteToFile(std::vector<int> route) {
-    std::ofstream outFile("route.txt"); // Create a file named "route.txt"
+void saveRouteToFile(vector<int> route) {
+    ofstream outFile("route.txt"); // Create a file named "route.txt"
     if (outFile.is_open()) {
         for (int i = 0; i < route.size(); ++i) {
             outFile << route[i] << " ";
         }
         outFile.close();
-        std::cout << "Route has been saved to route.txt" << std::endl;
+        cout << "Route has been saved to route.txt" << endl;
     } else {
-        std::cout << "Unable to open file." << std::endl;
+        cout << "Unable to open file." << endl;
     }
 }
 
-void printPath(std::vector<int> parent, int j) {
+void printPath(vector<int> parent, int j) {
     if (parent[j] == -1)
         return;
 
     printPath(parent, parent[j]);
-    std::cout << " -> " << j;
+    cout << " -> " << j;
+}
+float calculatetime(int dist)
+{   
+
+    float velocity=0.33;
+    float time=dist/velocity;
+    return time;
+
 }
 
-void printSolution(int dist[], std::vector<int> parent, int src, int dest) {
-    std::cout << "Shortest distance from source to destination: " << dist[dest] << std::endl;
+void printSolution(int dist[], vector<int> parent, int src, int dest) {
+    cout << "Shortest distance from source to destination: " << dist[dest] << endl;
 
-    std::cout << "Shortest path from source to destination: " << src;
+    cout << "Shortest path from source to destination: " << src;
     printPath(parent, dest);
-    std::cout << std::endl;
+    cout << endl;
 }
 
 void dijkstra(int graph[V][V], int src, int dest) {
     int dist[V];
     bool sptSet[V];
-    std::vector<int> parent(V, -1);
-
+    vector<int> parent(V, -1);
     for (int i = 0; i < V; i++) {
         dist[i] = INT_MAX;
         sptSet[i] = false;
@@ -73,14 +81,26 @@ void dijkstra(int graph[V][V], int src, int dest) {
     }
 
     printSolution(dist, parent, src, dest);
-
-    std::vector<int> route;
+    
+    vector<int> route;
     int current = dest;
     while (current != -1) {
         route.push_back(current);
         current = parent[current];
     }
     saveRouteToFile(route);
+    float time = calculatetime(dist[dest]);
+    ofstream outFile("time.txt"); // Create a file named "route.txt"
+    if (outFile.is_open()) {
+        outFile << time;
+        outFile.close();
+        cout << "Route has been saved to time.txt" << endl;
+    } else {
+        cout << "Unable to open file." << endl;
+    }
+
+
+    cout<<time<<endl;
 }
 
 int main() {
@@ -127,7 +147,7 @@ int main() {
 
     };
     int source, destination;
-    std::ifstream input_file("input.txt");
+    ifstream input_file("input.txt");
     if (input_file.is_open()) {
         input_file >> source >> destination;
         input_file.close();
@@ -135,10 +155,10 @@ int main() {
         if (source >= 0 && source < V && destination >= 0 && destination < V) {
             dijkstra(graph, source, destination);
         } else {
-            std::cout << "Invalid source or destination vertex. Please enter vertices in the range [0, " << V - 1 << "]." << std::endl;
+            cout << "Invalid source or destination vertex. Please enter vertices in the range [0, " << V - 1 << "]." << endl;
         }
     } else {
-        std::cout << "Unable to open input.txt file." << std::endl;
+        cout << "Unable to open input.txt file." << endl;
     }
 
     return 0;

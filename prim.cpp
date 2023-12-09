@@ -1,5 +1,6 @@
 #include <iostream>
 #include <climits>
+using namespace std;
 
 #define V 39
 
@@ -17,9 +18,9 @@ int minKey(int key[], bool mstSet[]) {
 }
 
 void printMST(int parent[], int graph[V][V]) {
-    std::cout << "Edge \tWeight\n";
+    cout << "Edge \tWeight\n";
     for (int i = 1; i < V; i++)
-        std::cout << parent[i] << " - " << i << "\t" << graph[i][parent[i]] << std::endl;
+        cout << parent[i] << " - " << i << "\t" << graph[i][parent[i]] << endl;
 }
 
 void primMST(int graph[V][V]) {
@@ -96,6 +97,5 @@ int main() {
     };
 
     primMST(graph);
-
     return 0;
 }

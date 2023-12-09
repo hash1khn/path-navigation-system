@@ -9,6 +9,16 @@ from specific import run_cpp, plot_graph, handle_submit, create_gui
 
 
 def show_graph():
+    image_path = ''
+    img = Image.open()
+    img = img.resize((100, 100))  # Adjust the size as needed
+    img = ImageTk.PhotoImage(img)
+
+    # Create a top-level window to display the image
+    image_window = tk.Toplevel()
+    image_label = tk.Label(image_window, image=img)
+    image_label.pack()
+
     messagebox.showinfo("Show Graph", "Graph will be displayed here.")
 
 def open_algorithm_window():
