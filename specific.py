@@ -93,7 +93,7 @@ def create_gui():
     frame = tk.Frame(root)
     frame.pack()
 
-    keys_source = tk.Label(frame, text=heading_labeltext, font=("Helvetica", 8))
+    keys_source = tk.Label(frame, text=heading_labeltext, font=("Helvetica", 10))
     keys_source.grid()
     label_source = tk.Label(frame, text="Enter Source Node:")
     label_source.grid(row=1, column=0)

@@ -11,7 +11,7 @@ from specific import run_cpp, plot_graph, handle_submit, create_gui
 def show_graph():
     image_path = 'karachi-map.png'
     img = Image.open(image_path)
-    img = img.resize((900, 600), Image.ADAPTIVE)  # Adjust the size as needed
+    img = img.resize((1200, 800), Image.ADAPTIVE)  # Adjust the size as needed
     img = ImageTk.PhotoImage(img)
     
     # Create a top-level window to display the image
