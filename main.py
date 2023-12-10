@@ -9,7 +9,6 @@ from specific import run_cpp, plot_graph, handle_submit, create_gui
 
 
 def show_graph():
-    # Load your image (replace 'karachi-map.png' with the actual path)
     image_path = 'karachi-map.png'
     img = Image.open(image_path)
     img = img.resize((900, 600), Image.ADAPTIVE)  # Adjust the size as needed
