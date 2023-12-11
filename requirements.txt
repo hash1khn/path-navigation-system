@@ -1,0 +1,4 @@
+tkinter
+matplotlib
+networkx
+pillow
