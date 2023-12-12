@@ -9,9 +9,9 @@ from specific import run_cpp, plot_graph, handle_submit, create_gui
 
 
 def show_graph():
-    image_path = 'karachi-map.png'
+    image_path = 'map.png'
     img = Image.open(image_path)
-    img = img.resize((1200, 800), Image.ADAPTIVE)  # Adjust the size as needed
+    img = img.resize((900, 600), Image.ADAPTIVE)  # Adjust the size as needed
     img = ImageTk.PhotoImage(img)
     
     # Create a top-level window to display the image
@@ -109,7 +109,7 @@ y_coordinate = (screen_height / 2) - (window_height / 2)
 root.geometry(f"{window_width}x{window_height}+{int(x_coordinate)}+{int(y_coordinate)}")
 
 # Load and resize background image (replace "download.jpeg" with your image file)
-image = Image.open("download.jpeg")
+image = Image.open("introimage.png")
 image = image.resize((window_width, window_height), Image.BICUBIC)
 background_image = ImageTk.PhotoImage(image)
 
@@ -117,11 +117,11 @@ background_label = tk.Label(root, image=background_image)
 background_label.place(relwidth=1, relheight=1)
 
 # Create and configure a label
-welcome_label = tk.Label(root, text="Map Navigator", font=("Helvetica", 23,"bold","italic"),bg="blue", fg="black", padx=10, pady=5,relief=tk.GROOVE)
+welcome_label = tk.Label(root, text="Map Navigation System", font=("Helvetica", 23),bg="blue", fg="black", padx=10, pady=5,relief=tk.GROOVE)
 welcome_label.pack(pady=20)
 
 # Create and configure "Show Graph" button
-show_graph_button = tk.Button(root, text="Show Graph",font=("Helvetica", 16), command=show_graph,bg="#4CAF50", fg="black", padx=10, pady=5)
+show_graph_button = tk.Button(root, text="Show Map",font=("Helvetica", 16), command=show_graph,bg="#4CAF50", fg="black", padx=10, pady=5)
 show_graph_button.pack(pady=10)
 
 # Create and configure "Let's Go" button
