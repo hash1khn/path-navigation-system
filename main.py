@@ -117,7 +117,7 @@ background_label = tk.Label(root, image=background_image)
 background_label.place(relwidth=1, relheight=1)
 
 # Create and configure a label
-welcome_label = tk.Label(root, text="Map Navigation System", font=("Helvetica", 23),bg="blue", fg="black", padx=10, pady=5,relief=tk.GROOVE)
+welcome_label = tk.Label(root, text="Map Navigation System", font=("Helvetica", 23, "bold"),bg="blue", fg="white", padx=10, pady=5,relief=tk.GROOVE)
 welcome_label.pack(pady=20)
 
 # Create and configure "Show Graph" button
@@ -125,7 +125,7 @@ show_graph_button = tk.Button(root, text="Show Map",font=("Helvetica", 16), comm
 show_graph_button.pack(pady=10)
 
 # Create and configure "Let's Go" button
-lets_go_button = tk.Button(root, text="Let's Go",font=("Helvetica", 16,"bold","italic"), command=open_algorithm_window,bg="#4CAF50", fg="black", padx=10, pady=5)
+lets_go_button = tk.Button(root, text="Let's Go",font=("Helvetica", 16,"bold","italic"), command=open_algorithm_window,bg="#4CAF50", padx=10, pady=5)
 lets_go_button.pack(pady=10)
 
 # Start the Tkinter event loop
