@@ -4,6 +4,7 @@ import tkinter as tk
 import subprocess
 import matplotlib.pyplot as plt
 import networkx as nx
+import os
 
 heading_labeltext ="0: FAST University\n1: Quaidabad\n2: Malir Halt\n3: Airport\n4: Shell Pump\n5: Drigh Road\n6: Tipu Sultan Road\n7: IBEX\n8: Clifton\n9: Checkpost 2\n10: Tank Chowk\n11: Pehlwan Goth\n12: Habib University\n13: Millennium Mall\n14: Dalmia\n15: Malir Cantt\n16: Checkpost 6\n17: Kamran Chowrangi\n18: Munawwar Chowrangi\n19: Darul Sehat\n20: Johar Chowrangi\n21: Johar Mor\n22: National Stadium\n23: Bahadurabad\n24: PECHS\n25: Checkpost 5\n26: Safoora Chowrangi\n27: Moasmiyat\n28: Samama\n29: NIPA\n30: Hassan Square\n31: Jail Chowrangi\n32: Gulshan-e-Maymar\n33: Gulshan Chowrangi\n34: Nazimabad\n35: Lucky One Mall\n36: Water Pumping\n37: Sohrab Goth\n38: Ancholi"
 
@@ -27,11 +28,25 @@ keys = ['FAST University', 'Quaidabad', 'Malir Halt', 'Airport', 'Shell Pump', '
         'Lucky One Mall', 'Water Pumping', 'Sohrab Goth', 'Ancholi']
 
 def run_cpp(source, destination):
-    with open('../txt/input.txt', 'w') as file:
+    txt_folder = 'txt'
+    cpp_folder = 'cpp'
+    input_file = 'input.txt'
+    specific_executable = 'showSpecific'
+
+    input_path = os.path.join('..', txt_folder, input_file)
+    
+    # Construct the path to the input file using os.path.join
+    with open(input_path, 'w') as file:
         file.write(f"{source} {destination}")
 
+    # Determine the correct executable file extension based on the operating system
+    if os.name == 'nt':  # Windows
+        executable_path = f'..\\{cpp_folder}\\{specific_executable}.exe'
+    else:  # Unix-like
+        executable_path = f'../{cpp_folder}/{specific_executable}'
+
     # Run the C++ program as a separate process
-    subprocess.Popen(["../cpp/showSpecific"])
+    subprocess.Popen([executable_path])
 
 def plot_graph(time):
     try:
