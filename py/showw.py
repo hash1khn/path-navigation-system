@@ -2,6 +2,7 @@ import subprocess
 import networkx as nx
 import matplotlib.pyplot as plt
 from io import StringIO
+import os
 import tkinter as tk
 from tkinter import messagebox
 
@@ -14,7 +15,17 @@ keys = ['FAST University', 'Quaidabad', 'Malir Halt', 'Airport', 'Shell Pump', '
 
 
 def run_dijkstra_and_get_output(source):
-    result = subprocess.run(["../cpp/showAll"], input=str(source), capture_output=True, text=True)
+    cpp_folder = 'cpp'
+    dijkstra_executable = 'showAll'
+
+    # Determine the correct executable file extension based on the operating system
+    if os.name == 'nt':  # Windows
+        executable_path = f'..\\{cpp_folder}\\{dijkstra_executable}.exe'
+    else:  # Unix-like
+        executable_path = f'../{cpp_folder}/{dijkstra_executable}'
+
+    # Use subprocess.run with the correct executable path
+    result = subprocess.run([executable_path], input=str(source), capture_output=True, text=True)
     return result.stdout
 
 
