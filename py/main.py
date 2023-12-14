@@ -83,8 +83,6 @@ def prims_algorithm():
     try:
         # Execute the compiled C++ program
         primsShow()
-
-        messagebox.showinfo("Prim's Algorithm", "Prim's Algorithm executed successfully.")
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred: {str(e)}")
 
