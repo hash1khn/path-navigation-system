@@ -5,21 +5,20 @@ import subprocess
 from prims import primsShow
 from showw import showAll
 from specific import run_cpp, plot_graph, handle_submit, create_gui
+import os
 
 
 
 def show_graph():
-    image_path = 'map.png'
+    image_path = '../img/map.png'
     img = Image.open(image_path)
-    img = img.resize((900, 600), Image.ADAPTIVE)  # Adjust the size as needed
+    img = img.resize((900, 600), Image.BICUBIC)  
     img = ImageTk.PhotoImage(img)
     
-    # Create a top-level window to display the image
     image_window = tk.Toplevel()
     image_label = tk.Label(image_window, image=img)
     image_label.pack()
 
-    # Keep a reference to the image to prevent it from being garbage-collected
     image_label.image = img
 
 
@@ -109,7 +108,7 @@ y_coordinate = (screen_height / 2) - (window_height / 2)
 root.geometry(f"{window_width}x{window_height}+{int(x_coordinate)}+{int(y_coordinate)}")
 
 # Load and resize background image (replace "download.jpeg" with your image file)
-image = Image.open("introimage.png")
+image = Image.open('../img/introimage.png')
 image = image.resize((window_width, window_height), Image.BICUBIC)
 background_image = ImageTk.PhotoImage(image)
 

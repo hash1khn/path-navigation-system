@@ -14,7 +14,7 @@ keys = ['FAST University', 'Quaidabad', 'Malir Halt', 'Airport', 'Shell Pump', '
 
 
 def run_dijkstra_and_get_output(source):
-    result = subprocess.run(["./showAll"], input=str(source), capture_output=True, text=True)
+    result = subprocess.run(["../cpp/showAll"], input=str(source), capture_output=True, text=True)
     return result.stdout
 
 

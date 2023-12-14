@@ -6,7 +6,7 @@ from io import StringIO
 keys=['FAST University','Quaidabad','Malir Halt','Airport','Shell Pump','Drigh Road','Tipu Sultan Road','IBEX','Clifton','Checkpost 2','Tank Chowk','Pehlwan GOth','Habib University','Millenium Mall','Dalmia','Malir Cantt','Checkpost 6','Kamran Chowrangi','Munawwar Chowrangi','Darul Sehat','Johar Chowrangi','Johar Mor','National Stadium','Bahadurabad','PECHS','Checkpost 5','Safoora Chowrangi','Moasmiyat','Samama','NIPA','Hassan Square','Jail Chowrangi','Gulshan-e-Maymar','Gulshan Chowrangi','Nazimabaf','Lucky One Mall','Water Pumping','Sohrab Goth','Ancholi']
 
 def run_prim_and_get_output():
-    result = subprocess.run(["./prim"], capture_output=True, text=True)
+    result = subprocess.run(["../cpp/prim"], capture_output=True, text=True)
     return result.stdout
 
 def parse_output(output):

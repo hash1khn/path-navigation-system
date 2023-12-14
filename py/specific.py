@@ -9,7 +9,7 @@ heading_labeltext ="0: FAST University\n1: Quaidabad\n2: Malir Halt\n3: Airport\
 
 def calctime():
         try:
-            with open('time.txt', 'r') as file:
+            with open('../txt/time.txt', 'r') as file:
                 time = file.readline()
                 print(time)
                     
@@ -27,15 +27,15 @@ keys = ['FAST University', 'Quaidabad', 'Malir Halt', 'Airport', 'Shell Pump', '
         'Lucky One Mall', 'Water Pumping', 'Sohrab Goth', 'Ancholi']
 
 def run_cpp(source, destination):
-    with open('input.txt', 'w') as file:
+    with open('../txt/input.txt', 'w') as file:
         file.write(f"{source} {destination}")
 
     # Run the C++ program as a separate process
-    subprocess.Popen(["./showSpecific"])
+    subprocess.Popen(["../cpp/showSpecific"])
 
 def plot_graph(time):
     try:
-        with open('route.txt', 'r') as file:
+        with open('../txt/route.txt', 'r') as file:
             route = list(map(int, file.readline().split()))
 
         # Create a dictionary to map node numbers to corresponding keys
