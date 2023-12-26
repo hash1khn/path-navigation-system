@@ -47,5 +47,5 @@ This project is licensed under the MIT License.
 Special gratitude to all for their invaluable inspiration, guidance, or data utilized in the development of this project.
 > ## Contact Information
 For any inquiries, please feel free to reach out to me at:
-[fuzailraza161@gmail.com](mailto:fuzailraza161@gmail.com)
+[hashirahmedkhan123@gmail.com](mailto:hashirahmedkhan123@gmail.com)
 
